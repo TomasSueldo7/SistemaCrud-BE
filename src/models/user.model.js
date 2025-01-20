@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     trim: true 
   },
   createdAt: { type: Date, default: Date.now },
-  roles:{
+  role:{
     type: String,
     validate: { 
       validator: function (role){ 
