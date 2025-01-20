@@ -2,18 +2,31 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./src/db/conexion.db');
+const bodyParser = require('body-parser');
 
 const productRoutes = require('./src/routes/pruduct.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const userRoutes = require('./src/routes/user.routes');
+const categoryRoutes = require('./src/routes/category.routes');
 
 const app = express();
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
+
+
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/category', categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
