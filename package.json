@@ -7,7 +7,7 @@
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tomas Sueldo",
   "license": "ISC",
   "description": "",
   "dependencies": {
