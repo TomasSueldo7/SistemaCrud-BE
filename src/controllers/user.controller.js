@@ -3,8 +3,8 @@ const User = require('../models/user.model');
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find()
-    if(users){
-      return res.status(204);
+    if(users.length === 0){
+      return res.status(204).json({message:"No existen usuarios"});
     }
     return res.status(200).json(users);
   } catch (error) {
@@ -28,5 +28,31 @@ exports.createUser = async (req, res) => {
     
   } catch (error) {
     return res.status(500).json({ message: 'Error al crear el usuario', error });
+  }
+};
+
+exports.editUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndUpdate(id, req.body, { new: true });
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json({ message: 'Error al editar el usuario', error });
+  }
+};
+
+exports.deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    return res.status(200).json({ message: 'Usuario eliminado correctamente' });
+  } catch (error) {
+    return res.status(500).json({ message: 'Error al eliminar el usuario', error });
   }
 };

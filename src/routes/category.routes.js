@@ -1,9 +1,12 @@
 const express = require('express');
 const { verifyToken } = require('../../middleware/verifyToken');
-const { getCategories } = require('../controllers/category.controller');
+const { getCategories, createCategory, editCategory, deleteCategory } = require('../controllers/category.controller');
 const router = express.Router();
 
 router.get('/', verifyToken, getCategories);
-// Similarmente, agregar POST, PUT, DELETE
+router.post('/', verifyToken, createCategory);
+router.put('/:id', verifyToken, editCategory);
+router.delete('/:id', verifyToken, deleteCategory);
+
 
 module.exports = router;

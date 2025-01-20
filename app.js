@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(express.json());
 
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/product', productRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/category', categoryRoutes);
 

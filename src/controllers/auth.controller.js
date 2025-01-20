@@ -21,7 +21,7 @@ exports.login = async(req, res) => {
         userEmail: userFound.email
       }
 
-      const token = jwt.sign(payload, JWT_SECRET, {expiresIn: '1h'})
+      const token = jwt.sign(payload, JWT_SECRET, {expiresIn: '30m'})
       const role = userFound.role
       return res.status(200).json({message: 'Inicio de sesion exitoso', token, role, user: {id: userFound._id, name: userFound.name, email: userFound.email}});
     }
