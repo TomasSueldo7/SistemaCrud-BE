@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Este es un proyecto de BackEnd enfocado en un sistema simple que maneja sesiones y permite realizar operaciones CRUD sobre los siguientes modelos:
+Este es un proyecto **API REST** desarrollado como trabajo final de la diplomatura de Desarrollo Web Full Stack. Esta enfocado en un sistema simple que maneja sesiones y permite realizar operaciones CRUD sobre los siguientes modelos:
 - **User**
 - **Category**
 - **Product**
