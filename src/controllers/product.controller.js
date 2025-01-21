@@ -12,6 +12,23 @@ exports.getProducts = async (req, res) => {
   }
 };
 
+exports.getProductByName = async (req, res) => {
+  try {
+    const name = req.params.name.trim().toLowerCase();
+    if(!name){
+      return res.status(400).json({message: 'El nombre del producto es requerido'});
+    }
+    
+    const product = await Product.findOne({ name });
+    if (!product) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ message: 'Error al obtener el producto', error });
+  }
+};
+
 exports.createProduct = async (req, res) => {
   try {
     const productFound = await Product.findOne({name: req.body.name});

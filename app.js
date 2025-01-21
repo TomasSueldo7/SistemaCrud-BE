@@ -5,7 +5,7 @@ const cors = require('cors');
 const connectDB = require('./src/db/conexion.db');
 const bodyParser = require('body-parser');
 
-const productRoutes = require('./src/routes/pruduct.routes');
+const productRoutes = require('./src/routes/product.routes');
 const authRoutes = require('./src/routes/auth.routes');
 const userRoutes = require('./src/routes/user.routes');
 const categoryRoutes = require('./src/routes/category.routes');
