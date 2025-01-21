@@ -57,11 +57,13 @@ Cada URL posee las 4 operaciones disponibles GET, POST, PUT, DELETE. Todos los m
     - DELETE: /api/user/:id - Eliminar un usuario por su ID.
   - PRODUCT: 
     - GET: /api/product - Obtener todos los productos.
+    - GET: /api/product/:name - Obtener un producto por nombre.
     - POST: /api/product - Crear un nuevo producto.
     - PUT: /api/product/:id - Actualizar un producto existente por su ID.
     - DELETE: /api/product/:id - Eliminar un producto por su ID.
   - CATEGORY: /api/category
     - GET: /api/category - Obtener todas las categorías.
+    - GET: /api/category/:name - Obtener una categoría nombre.
     - POST: /api/category - Crear una nueva categoría.
     - PUT: /api/category/:id - Actualizar una categoría existente por su ID.
     - DELETE: /api/category/:id - Eliminar una categoría por su ID.
