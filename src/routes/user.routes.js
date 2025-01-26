@@ -4,7 +4,7 @@ const { getUsers, createUser, editUser, deleteUser } = require('../controllers/u
 const router = express.Router();
 
 router.get('/', verifyToken, getUsers);
-router.post('/', verifyToken, createUser);
+router.post('/', createUser);
 router.put('/:id', verifyToken, editUser);
 router.delete('/:id', verifyToken, deleteUser);
 
